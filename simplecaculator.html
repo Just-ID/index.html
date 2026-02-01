@@ -1,0 +1,51 @@
+To complete this task, you'll need to create a simple HTML form with some JavaScript. The form will take two numbers as input, calculate the area and perimeter of a rectangle, and then display the results. Here's the code you can use.
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rectangle Calculator</title>
+</head>
+<body>
+
+  <form name="calcForm">
+    <label for="length">Length:</label>
+    <input type="text" id="length" name="length">
+    <br><br>
+    
+    <label for="width">Width:</label>
+    <input type="text" id="width" name="width">
+    <br><br>
+    
+    <input type="button" value="Calculate" onclick="calculate()">
+    <br><br>
+
+    <label for="areaBox">Area:</label>
+    <input type="text" id="areaBox" name="areaBox" readonly>
+    <br><br>
+    
+    <label for="perimeterBox">Perimeter:</label>
+    <input type="text" id="perimeterBox" name="perimeterBox" readonly>
+
+  <script>
+    function calculate() {
+      // Get the values from the input fields
+      const length = parseFloat(document.getElementById('length').value);
+      const width = parseFloat(document.getElementById('width').value);
+      
+      // Check if the inputs are valid numbers
+      if (isNaN(length) || isNaN(width)) {
+        alert("Please enter valid numbers for length and width.");
+        return;
+      }
+
+      // Calculate the area and perimeter
+      const area = length * width;
+      const perimeter = 2 * (length + width);
+
+      // Display the results in the output fields
+      document.getElementById('areaBox').value = area;
+      document.getElementById('perimeterBox').value = perimeter;
+    }
+  </script>
+
+</body>
+</html>
